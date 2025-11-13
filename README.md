@@ -1,112 +1,104 @@
-# Organic Valley BI - Lector de Datos HANA
+Organic Valley BI - HANA Data Reader
 
-Este proyecto proporciona un módulo completo para leer datos de HANA Cloud, mapear columnas técnicas a nombres legibles y preparar los datos para consumo en aplicaciones.
+This project provides a complete module to read data from HANA Cloud, map technical columns to human-readable names, and prepare the data for consumption in applications.
 
-## 📋 Características
+📋 Features
 
-- ✅ Conexión a HANA Cloud usando `hana_ml`
-- ✅ Lectura de datos de la tabla `PurchaseDocuments`
-- ✅ Mapeo automático de columnas técnicas a nombres legibles
-- ✅ Generación de datos preparados en formato JSON
-- ✅ Funciones de filtrado y análisis de datos
-- ✅ Ejemplo completo de consumo para aplicaciones
+✅ Connection to HANA Cloud using hana_ml
 
-## 📊 Datos Procesados
+✅ Data reading from table PurchaseDocuments
 
-- **Tabla fuente**: `COEAI.PurchaseDocuments`
-- **Total registros**: 28,988
-- **Total columnas**: 24
-- **Rango de fechas**: 2024-03-25 a 2025-02-07
-- **Empresas únicas**: 1
-- **Plantas únicas**: 36
-- **Materiales únicos**: 164
+✅ Automatic mapping of technical columns to readable names
 
-## 🏗️ Estructura del Proyecto
+✅ Generation of prepared data in JSON format
 
-```
+✅ Data filtering and analysis functions
+
+✅ Full example of application data consumption
+
+📊 Processed Data
+
+Source table: COEAI.PurchaseDocuments
+
+Total records: 28,988
+
+Total columns: 24
+
+Date range: 2024-03-25 to 2025-02-07
+
+Unique companies: 1
+
+Unique plants: 36
+
+Unique materials: 164
+
+🏗️ Project Structure
 .
-├── hana.py                 # Módulo principal de conexión y procesamiento
-├── annotations.json        # Mapeo de columnas técnicas a nombres legibles
-├── .env                   # Credenciales de conexión a HANA
-├── prepared_data.json     # Datos procesados y listos para consumo (31.5MB)
-├── ejemplo_consumo.py     # Ejemplo de cómo usar los datos en aplicaciones
-├── test.ipynb            # Notebook de pruebas originales
-└── README.md             # Este archivo
-```
+├── hana.py                 # Main connection and processing module
+├── annotations.json        # Mapping of technical to readable column names
+├── .env                    # HANA connection credentials
+├── prepared_data.json      # Processed data ready for consumption (31.5MB)
+├── ejemplo_consumo.py      # Example of how to use the data in applications
+├── test.ipynb              # Original testing notebook
+└── README.md               # This file
 
-## ⚙️ Configuración
+⚙️ Configuration
+1. Credentials (.env)
 
-### 1. Credenciales (.env)
-
-
-```
-
-### 2. Dependencias
+### 2. Dependencies
 
 ```bash
 pip install hana-ml pandas python-dotenv
-```
 
-## 🚀 Uso
-
-### Procesamiento de Datos
-
-```python
+🚀 Usage
+Data Processing
 from hana import HanaDataReader
 
-# Inicializar el lector
+# Initialize reader
 reader = HanaDataReader()
 
-# Obtener datos preparados
+# Get prepared data
 prepared_data = reader.get_prepared_data()
 
-# Guardar en archivo JSON
+# Save to JSON file
 reader.save_prepared_data('prepared_data.json')
 
-# Cerrar conexión
+# Close connection
 reader.disconnect()
-```
 
-### Consumo de Datos Preparados
-
-```python
+Consuming Prepared Data
 import json
 import pandas as pd
 
-# Cargar datos preparados
+# Load prepared data
 with open('prepared_data.json', 'r') as f:
     data = json.load(f)
 
-# Convertir a DataFrame
+# Convert to DataFrame
 df = pd.DataFrame(data['data'])
 
-# Filtrar por planta específica
+# Filter by specific plant
 plant_data = df[df['Plant'] == 1034]
 
-# Análisis básico
-print(f"Total registros: {len(df):,}")
-print(f"Columnas: {list(df.columns)}")
-```
+# Basic analysis
+print(f"Total records: {len(df):,}")
+print(f"Columns: {list(df.columns)}")
 
-## 📊 Mapeo de Columnas
+📊 Column Mapping
 
-Las columnas técnicas se mapean automáticamente usando `annotations.json`:
+Technical columns are automatically mapped using annotations.json:
 
-| Nombre Técnico | Nombre Legible |
-|---------------|----------------|
-| MANDT | Client |
-| EBELN | Purchasing Document Number |
-| EBELP | Item Number of Purchasing Document |
-| BUKRS | Company Code |
-| WERKS | Plant |
-| MATNR | Material Number |
-| MENGE | Purchase Order Quantity (Requested) |
-| EINDT | Delivery Date (Requested) |
-| ... | ... |
-
-## 🔄 Estructura de Datos Preparados
-
-```json
+Technical Name	Readable Name
+MANDT	Client
+EBELN	Purchasing Document Number
+EBELP	Item Number of Purchasing Document
+BUKRS	Company Code
+WERKS	Plant
+MATNR	Material Number
+MENGE	Purchase Order Quantity (Requested)
+EINDT	Delivery Date (Requested)
+...	...
+🔄 Prepared Data Structure
 {
   "metadata": {
     "total_records": 28988,
@@ -134,91 +126,99 @@ Las columnas técnicas se mapean automáticamente usando `annotations.json`:
     ...
   ]
 }
-```
 
-## 🧪 Pruebas y Ejemplos
-
-### Ejecutar el procesamiento completo:
-```bash
+🧪 Tests and Examples
+Run full processing:
 python hana.py
-```
 
-### Probar el consumo de datos:
-```bash
+Test data consumption:
 python ejemplo_consumo.py
-```
 
-## 📈 Funcionalidades del Módulo HanaDataReader
+📈 HanaDataReader Module Features
+Main Methods
 
-### Métodos Principales
+connect(): Establishes connection to HANA Cloud
 
-- `connect()`: Establece conexión con HANA Cloud
-- `read_all_data(table_name, schema)`: Lee todos los datos de una tabla
-- `get_table_info(table_name, schema)`: Obtiene información de la tabla
-- `get_column_mapping()`: Obtiene el mapeo de columnas
-- `apply_column_mapping(df)`: Aplica mapeo a un DataFrame
-- `get_prepared_data()`: Genera datos preparados para consumo
-- `save_prepared_data(output_file)`: Guarda datos en archivo JSON
-- `disconnect()`: Cierra la conexión
+read_all_data(table_name, schema): Reads all data from a table
 
-### Funciones de Consumo (ejemplo_consumo.py)
+get_table_info(table_name, schema): Retrieves table information
 
-- `load_prepared_data(file_path)`: Carga datos desde JSON
-- `get_data_summary(prepared_data)`: Obtiene resumen de los datos
-- `filter_data(prepared_data, filters)`: Filtra datos por criterios
-- `get_analytics(prepared_data)`: Análisis básico de los datos
+get_column_mapping(): Gets column mapping
 
-## 🎯 Casos de Uso
+apply_column_mapping(df): Applies mapping to a DataFrame
 
-1. **Dashboard de BI**: Consumir datos para visualizaciones
-2. **Análisis de compras**: Estudiar patrones de procurement
-3. **Reportes automáticos**: Generar informes periódicos
-4. **APIs de datos**: Servir datos a aplicaciones web
-5. **Machine Learning**: Usar datos para modelos predictivos
+get_prepared_data(): Generates data ready for consumption
 
-## 🔒 Seguridad
+save_prepared_data(output_file): Saves data to JSON file
 
-- Las credenciales están en archivo `.env` (no incluir en control de versiones)
-- Conexión segura a HANA Cloud con SSL
-- Validación de credenciales antes de conexión
+disconnect(): Closes the connection
 
-## 📝 Logs y Debugging
+Consumption Functions (ejemplo_consumo.py)
 
-El módulo incluye logging completo:
+load_prepared_data(file_path): Loads data from JSON
 
-```
-INFO:__main__:Conexión a HANA establecida exitosamente
-INFO:__main__:Leyendo datos de la tabla: COEAI.PurchaseDocuments
-INFO:__main__:Se leyeron 28988 registros de COEAI.PurchaseDocuments
-INFO:__main__:Se mapearon 24 columnas
-INFO:__main__:Datos preparados guardados en: prepared_data.json
-```
+get_data_summary(prepared_data): Gets data summary
 
-## 🚀 Próximos Pasos
+filter_data(prepared_data, filters): Filters data by criteria
 
-1. **Automatización**: Configurar actualizaciones automáticas de datos
-2. **Cache**: Implementar cache para mejorar performance
-3. **API REST**: Crear API para servir los datos
-4. **Validación**: Agregar validaciones de calidad de datos
-5. **Alertas**: Notificaciones cuando hay datos nuevos
+get_analytics(prepared_data): Performs basic analytics
 
-## 👥 Mantenimiento
+🎯 Use Cases
 
-Para actualizar los datos:
+BI Dashboard – Consume data for visualizations
 
-```bash
-# Ejecutar procesamiento completo
+Procurement Analysis – Study purchasing patterns
+
+Automated Reports – Generate periodic reports
+
+Data APIs – Serve data to web applications
+
+Machine Learning – Use data for predictive models
+
+🔒 Security
+
+Credentials are stored in the .env file (excluded from version control)
+
+Secure connection to HANA Cloud using SSL
+
+Credential validation before connection
+
+📝 Logs and Debugging
+
+The module includes complete logging:
+
+INFO:__main__:Connection to HANA established successfully
+INFO:__main__:Reading data from table: COEAI.PurchaseDocuments
+INFO:__main__:Read 28,988 records from COEAI.PurchaseDocuments
+INFO:__main__:Mapped 24 columns
+INFO:__main__:Prepared data saved to: prepared_data.json
+
+🚀 Next Steps
+
+Automation – Set up automatic data updates
+
+Cache – Implement caching for better performance
+
+REST API – Create an API to serve the data
+
+Validation – Add data quality validations
+
+Alerts – Notifications when new data is available
+
+👥 Maintenance
+
+To update the data:
+
+# Run full processing
 python hana.py
 
-# Verificar archivo generado
+# Check generated file
 ls -la prepared_data.json
 
-# Probar consumo
+# Test data consumption
 python ejemplo_consumo.py
-```
 
----
 
-**Proyecto completado exitosamente** ✅
+Project successfully completed ✅
 
-Los datos de HANA Cloud están ahora preparados y mapeados, listos para ser consumidos directamente por cualquier aplicación.
+HANA Cloud data is now prepared and mapped, ready to be consumed directly by any application.
