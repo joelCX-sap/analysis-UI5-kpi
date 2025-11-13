@@ -1,4 +1,4 @@
-Organic Valley BI - HANA Data Reader
+BI - HANA Data Reader
 
 This project provides a complete module to read data from HANA Cloud, map technical columns to human-readable names, and prepare the data for consumption in applications.
 
