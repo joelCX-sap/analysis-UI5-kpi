@@ -1,0 +1,131 @@
+<div class="excel-page">
+  <div class="page-header">
+    <ui5-title level="H2">📊 Excel Data Analysis</ui5-title>
+    <ui5-text>Upload Excel files and analyze your data using AI-powered insights</ui5-text>
+  </div>
+
+  <!-- Upload Section -->
+  <div class="upload-section">
+    <ui5-card class="upload-card">
+      <ui5-card-header slot="header">
+        <ui5-title level="H3" slot="title">Upload Excel File</ui5-title>
+        <ui5-text slot="subtitle">Supported formats: .xlsx, .xls</ui5-text>
+      </ui5-card-header>
+      
+      <div class="upload-content">
+        <div class="file-upload-area" id="fileUploadArea">
+          <ui5-icon name="upload-to-cloud" class="upload-icon"></ui5-icon>
+          <ui5-title level="H4">Drag & Drop Excel File Here</ui5-title>
+          <ui5-text>or click to browse files</ui5-text>
+          <input type="file" id="fileInput" accept=".xlsx,.xls" style="display: none;">
+          <ui5-button id="browseBtn" design="Emphasized">Browse Files</ui5-button>
+        </div>
+        
+        <!-- Upload Progress -->
+        <div id="uploadProgress" class="upload-progress" style="display: none;">
+          <ui5-progress-indicator id="progressBar" value="0"></ui5-progress-indicator>
+          <ui5-text id="progressText">Uploading...</ui5-text>
+        </div>
+      </div>
+    </ui5-card>
+  </div>
+
+  <!-- Files List Section -->
+  <div class="files-section">
+    <ui5-card class="files-card">
+      <ui5-card-header slot="header">
+        <ui5-title level="H3" slot="title">Uploaded Files</ui5-title>
+        <ui5-button id="refreshFilesBtn" icon="refresh" design="Transparent" slot="action"></ui5-button>
+      </ui5-card-header>
+      
+      <div class="files-content">
+        <div id="filesList">
+          <ui5-busy-indicator active id="filesLoader" style="display: none;"></ui5-busy-indicator>
+          <ui5-text id="noFilesText" class="no-files-text">No files uploaded yet</ui5-text>
+        </div>
+      </div>
+    </ui5-card>
+  </div>
+
+  <!-- Analysis Section -->
+  <div class="analysis-section" id="analysisSection" style="display: none;">
+    <ui5-card class="analysis-card">
+      <ui5-card-header slot="header">
+        <ui5-title level="H3" slot="title" id="analysisTitle">File Analysis</ui5-title>
+        <ui5-button id="closeAnalysisBtn" icon="decline" design="Transparent" slot="action"></ui5-button>
+      </ui5-card-header>
+      
+      <div class="analysis-content">
+        <!-- File Summary -->
+        <div class="file-summary" id="fileSummary">
+          <ui5-busy-indicator active id="summaryLoader"></ui5-busy-indicator>
+        </div>
+
+        <!-- Data Preview -->
+        <div class="data-preview" id="dataPreview">
+          <ui5-title level="H4">Data Preview</ui5-title>
+          <div id="previewTabs"></div>
+          <div id="previewContent"></div>
+        </div>
+
+        <!-- Question Input -->
+        <div class="question-section">
+          <ui5-title level="H4">Ask Questions About Your Data</ui5-title>
+          <div class="question-input-area">
+            <ui5-textarea
+              id="questionInput"
+              placeholder="Ask anything about your data... e.g., 'What are the main trends in this data?' or 'Show me summary statistics for each column'"
+              rows="3"
+              class="question-textarea"
+            ></ui5-textarea>
+            <ui5-button id="analyzeBtn" design="Emphasized" icon="action">
+              Analyze Data
+            </ui5-button>
+          </div>
+          
+          <!-- Suggested Questions -->
+          <div class="suggested-questions">
+            <ui5-text class="suggestion-label">Suggested questions:</ui5-text>
+            <div class="suggestion-buttons">
+              <ui5-button design="Transparent" class="suggestion-btn" data-question="What are the main insights from this data?">
+                Main Insights
+              </ui5-button>
+              <ui5-button design="Transparent" class="suggestion-btn" data-question="Show me summary statistics and data quality issues">
+                Data Quality
+              </ui5-button>
+              <ui5-button design="Transparent" class="suggestion-btn" data-question="What patterns and trends can you identify?">
+                Patterns & Trends
+              </ui5-button>
+              <ui5-button design="Transparent" class="suggestion-btn" data-question="Provide recommendations based on this data">
+                Recommendations
+              </ui5-button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analysis Results -->
+        <div class="analysis-results" id="analysisResults" style="display: none;">
+          <ui5-title level="H4">Analysis Results</ui5-title>
+          <div class="analysis-content-area">
+            <ui5-busy-indicator active id="analysisLoader" style="display: none;"></ui5-busy-indicator>
+            <div id="analysisOutput" class="analysis-output"></div>
+          </div>
+        </div>
+      </div>
+    </ui5-card>
+  </div>
+
+  <!-- Chat History -->
+  <div class="chat-history-section" id="chatHistorySection" style="display: none;">
+    <ui5-card class="chat-card">
+      <ui5-card-header slot="header">
+        <ui5-title level="H3" slot="title">Analysis History</ui5-title>
+        <ui5-button id="clearHistoryBtn" icon="delete" design="Transparent" slot="action"></ui5-button>
+      </ui5-card-header>
+      
+      <div class="chat-content" id="chatHistory">
+        <!-- Analysis history will be populated here -->
+      </div>
+    </ui5-card>
+  </div>
+</div>

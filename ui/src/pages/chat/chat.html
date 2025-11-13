@@ -1,0 +1,59 @@
+<div class="chat-container">
+  <ui5-title>AI-Powered SAP Data Analysis</ui5-title>
+
+  <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #0070f3;">
+    <ui5-label><strong>💡 About this AI Assistant:</strong></ui5-label>
+    <div style="margin-top: 0.5rem; color: #666;">
+      Ask questions about your SAP purchase data in natural language. The AI analyzes real-time data from SAP HANA (28,988+ purchase documents) to provide business insights, recommendations, and detailed analysis.
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem">
+    <ui5-label><strong>🤖 AI Model:</strong> SAP AI Core LLM</ui5-label>
+    <input type="hidden" id="model-select" value="sap-ai" />
+  </div>
+
+  <div style="margin-top: 1rem">
+    <ui5-label for="prompt-input" required><strong>Ask about your purchase data:</strong></ui5-label>
+    <ui5-textarea id="prompt-input" style="width: 100%" rows="6" placeholder="Examples:
+• What are the main delivery performance issues?
+• Which plants have the best on-time delivery rates?
+• Analyze lead time trends and suggest improvements
+• Show me materials with low fill rates
+• What are the key factors affecting delivery delays?"></ui5-textarea>
+  </div>
+
+  <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <ui5-button id="send-button" design="Emphasized">🚀 Analyze Data</ui5-button>
+    <ui5-button id="example-btn-1" design="Transparent" style="font-size: 0.9rem;">📊 Performance Analysis</ui5-button>
+    <ui5-button id="example-btn-2" design="Transparent" style="font-size: 0.9rem;">🏭 Plant Comparison</ui5-button>
+    <ui5-button id="example-btn-3" design="Transparent" style="font-size: 0.9rem;">⏰ Lead Time Trends</ui5-button>
+  </div>
+
+  <ui5-panel id="response-panel" header-text="AI Analysis Results" collapsed style="margin-top: 2rem">
+    <div id="response-container" style="padding: 1rem; white-space: pre-wrap; min-height: 50px; line-height: 1.6;"></div>
+  </ui5-panel>
+
+  <div style="margin-top: 2rem; padding: 1rem; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+    <ui5-label><strong>💡 Quick Start Examples:</strong></ui5-label>
+    <ul style="margin: 0.5rem 0; padding-left: 1.5rem; color: #666;">
+      <li><em>"What's our overall on-time delivery performance?"</em></li>
+      <li><em>"Which materials are causing the most delivery delays?"</em></li>
+      <li><em>"Compare delivery performance across different plants"</em></li>
+      <li><em>"Analyze trends in our lead times over the past months"</em></li>
+      <li><em>"What factors are impacting our fill rates?"</em></li>
+      <li><em>"Show me insights about open order aging"</em></li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 1rem; padding: 1rem; background: #e8f4fd; border-radius: 8px; border-left: 4px solid #17a2b8;">
+    <ui5-label><strong>🔍 Data Coverage:</strong></ui5-label>
+    <div style="margin-top: 0.5rem; color: #666; font-size: 0.9rem;">
+      • <strong>28,988+</strong> purchase documents<br>
+      • <strong>36</strong> plants<br>
+      • <strong>164</strong> materials<br>
+      • <strong>Real-time</strong> SAP HANA connection<br>
+      • <strong>March 2024 - February 2025</strong> date range
+    </div>
+  </div>
+</div>

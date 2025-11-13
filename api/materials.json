@@ -1,0 +1,41 @@
+{
+  "material": {
+    "elements": {
+      "MATNR": {
+        "// not editable @EndUserText.label": "Material Number"
+      },
+      "MAKTX": {
+        "// not editable @EndUserText.label": "Material Description"
+      },
+      "BISMT": {
+        "// not editable @EndUserText.label": "Old material number"
+      },
+      "MTART": {
+        "// not editable @EndUserText.label": "Material type"
+      },
+      "MATKL": {
+        "// not editable @EndUserText.label": "Material Group"
+      },
+      "MEINS": {
+        "// not editable @EndUserText.label": "Base Unit of Measure"
+      },
+      "PRDHA": {
+        "// not editable @EndUserText.label": "Product hierarchy"
+      },
+      "NUMTP": {
+        "// not editable @EndUserText.label": "Category of International Article Number (EAN)"
+      },
+      "EAN11": {
+        "// not editable @EndUserText.label": "International Article Number (EAN/UPC)"
+      },
+      "Crossplant_Material_Status": {
+        "// not editable @EndUserText.label": "Cross-plant Material Status"
+      },
+      "_3VD_S4H_A": {
+        "// not editable type": "cds.Association",
+        "// not editable @EndUserText.label": "material to MaterialGroup"
+      }
+    },
+    "// not editable @EndUserText.label": "material"
+  }
+}

@@ -1,0 +1,43 @@
+<div class="home-container">
+  <ui5-title>Home</ui5-title>
+  <br />
+  <ui5-text>SAP Purchase Documents BI Dashboard - Real-time analytics and AI-powered insights from SAP HANA data.</ui5-text>
+  <ui5-card style="margin-top: 1rem">
+    <ui5-card-header slot="header" title-text="KPI Dashboard">
+      <ui5-icon name="business-objects-experience" slot="avatar"></ui5-icon>
+    </ui5-card-header>
+    <div style="padding: 1rem">
+      <ui5-text>View comprehensive purchase document KPIs with interactive charts and AI analysis. Click on <b>Charts</b> in the sidebar to explore real-time data from SAP HANA.</ui5-text>
+    </div>
+  </ui5-card>
+  <ui5-card style="margin-top: 1rem">
+    <ui5-card-header slot="header" title-text="AI-Powered Chat">
+      <ui5-icon name="ai" slot="avatar"></ui5-icon>
+    </ui5-card-header>
+    <div style="padding: 1rem">
+      <ui5-text>Ask questions about your purchase data using natural language. Our AI assistant analyzes real-time SAP HANA data to provide business insights. Click on <b>Chat Demo</b> in the sidebar.</ui5-text>
+    </div>
+  </ui5-card>
+  <ui5-card style="margin-top: 1rem">
+    <ui5-card-header slot="header" title-text="Excel Data Analysis">
+      <ui5-icon name="excel-attachment" slot="avatar"></ui5-icon>
+    </ui5-card-header>
+    <div style="padding: 1rem">
+      <ui5-text>Upload and analyze Excel files using AI-powered insights. Get data summaries, ask questions about your spreadsheets, and discover patterns in your data. Click on <b>Excel Analysis</b> in the sidebar.</ui5-text>
+    </div>
+  </ui5-card>
+  <ui5-card style="margin-top: 1rem">
+    <ui5-card-header slot="header" title-text="API Health Check">
+      <ui5-icon name="activity-assigned-to-goal" slot="avatar"></ui5-icon>
+    </ui5-card-header>
+    <div style="padding: 1rem">
+      <ui5-text>Check the connection status to SAP HANA and backend services.</ui5-text>
+      <div style="margin-top: 1rem">
+        <ui5-button id="health-check-button">Check Health</ui5-button>
+      </div>
+      <ui5-panel id="health-response-panel" header-text="API Response" collapsed style="margin-top: 1rem">
+        <div id="health-response-container" style="padding: 1rem; white-space: pre-wrap; min-height: 50px"></div>
+      </ui5-panel>
+    </div>
+  </ui5-card>
+</div>

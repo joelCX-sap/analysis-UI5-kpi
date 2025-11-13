@@ -1,0 +1,68 @@
+/* Chat page specific styles */
+.chat-container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Enhanced UI for Purchase Data Chat */
+#response-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Loading animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status indicators */
+.status-success {
+  background: #e8f5e8;
+  border-left: 4px solid #28a745;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.status-warning {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.status-error {
+  background: #ffeaea;
+  border-left: 4px solid #d73527;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Improve textarea appearance */
+#prompt-input {
+  margin-top: 0.5rem !important;
+}
+
+/* Response formatting */
+.ai-response {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.data-summary {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-container {
+    padding: 0.5rem;
+  }
+}

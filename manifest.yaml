@@ -1,0 +1,27 @@
+---
+applications:
+  - name: organic-valley-api-bi
+    path: api
+    buildpack: python_buildpack
+    command: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    memory: 512M
+    disk_quota: 2048M
+    routes:
+      - route: organic-valley-api-bi.cfapps.eu01-canary.hana.ondemand.com
+    env:
+      ALLOWED_ORIGIN: https://organic-valley-ui-bi.cfapps.eu01-canary.hana.ondemand.com
+      APP_ENV: production
+      API_KEY: ((api_key))
+
+  - name: organic-valley-ui
+    path: ui
+    buildpack: nodejs_buildpack
+    command: npm run build && npx vite preview --host 0.0.0.0 --port $PORT
+    memory: 512M
+    disk_quota: 2048M
+    routes:
+      - route: organic-valley-ui-bi.cfapps.eu01-canary.hana.ondemand.com
+    env:
+      VITE_API_BASE_URL: https://organic-valley-api-bi.cfapps.eu01-canary.hana.ondemand.com
+      VITE_APP_HOST: organic-valley-ui-bi.cfapps.eu01-canary.hana.ondemand.com
+      VITE_API_KEY: ((api_key))

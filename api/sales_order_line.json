@@ -1,0 +1,50 @@
+{
+  "3VF_S4H_AI_Fact_SalesDocument_Line": {
+    "elements": {
+      "VBELN": {
+        "// not editable @EndUserText.label": "Sales Document"
+      },
+      "POSNR": {
+        "// not editable @EndUserText.label": "Sales Document Item"
+      },
+      "WERKS": {
+        "// not editable @EndUserText.label": "Plant"
+      },
+      "MATNR": {
+        "// not editable @EndUserText.label": "Material Number"
+      },
+      "MEINS": {
+        "// not editable @EndUserText.label": "Base Unit of Measure"
+      },
+      "Quantity_Requested": {
+        "// not editable @EndUserText.label": "Quantity (Requested)"
+      },
+      "Quantity_Delivered": {
+        "// not editable @EndUserText.label": "Quantity (Delivered)"
+      },
+      "Delivery_Date_Requested": {
+        "// not editable @EndUserText.label": "Delivery Date (Requested)"
+      },
+      "Delivery_Date_Actual": {
+        "// not editable @EndUserText.label": "Delivery Date (Actual)"
+      },
+      "_3VD_S4H_A": {
+        "// not editable type": "cds.Association",
+        "// not editable @EndUserText.label": "View 1 to 3VD_S4H_AI_Plant"
+      },
+      "_3VD_S4H_1": {
+        "// not editable type": "cds.Association",
+        "// not editable @EndUserText.label": "View 1 to 3VD_S4H_AI_Dim_Material"
+      },
+      "_VIEW_DIME": {
+        "// not editable type": "cds.Association",
+        "// not editable @EndUserText.label": "View 1 to Time Dimension - Day"
+      },
+      "_VIEW_DIM1": {
+        "// not editable type": "cds.Association",
+        "// not editable @EndUserText.label": "View 1 to Time Dimension - Day1"
+      }
+    },
+    "// not editable @EndUserText.label": "3VF_S4H_AI_Fact_SalesDocument_Line"
+  }
+}
